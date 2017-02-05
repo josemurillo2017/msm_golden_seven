@@ -1,0 +1,19 @@
+<table>
+  <% @model_list.each do |model| %>
+  <tr>
+    <% model.attributes.each do |attr_name, attr_value| %>
+      <td>
+        <%= attr_value %>
+
+
+      </td>
+
+
+    <% end %>
+
+
+
+  </tr>
+
+
+  <% end %>
