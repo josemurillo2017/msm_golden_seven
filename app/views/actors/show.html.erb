@@ -1,15 +1,18 @@
 <table>
   <% @model_list.each do |model| %>
   <tr>
-    <% model.attributes.each do |attr_name, attr_value| %>
-      <td>
-        <%= attr_value %>
-
-
-      </td>
-
-
-    <% end %>
+    <td>
+      <%= model.name %>
+    </td>
+    <td>
+      <%= model.bio %>
+    </td>
+    <td>
+      <%= model.dob %>
+    </td>
+    <td>
+      <img src="<%= model.image_url %>">
+    </td>
 
 
 
