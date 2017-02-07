@@ -1,0 +1,26 @@
+<h1> Update Database!</h1>
+
+<form  action="/update_director">
+  <div>
+    <label for="the_name">Name :</label>
+    <input id="the_name" type="text" name="the_name" value ="<%= @object.name %>">
+  </div>
+  <div>
+    <label for="the_bio"> Bio :</label>
+    <input id="the_bio" type="text" name="the_bio" value ="<%= @object.bio %>">
+  </div>
+  <div>
+    <label for="the_dob"> DOB :</label>
+    <input id="the_dob" type="text" name="the_dob" value ="<%= @object.dob %>">
+  </div>
+  <div>
+    <label for="the_image_url"> Image URL :</label>
+    <input id="the_image_url" type="text" name="the_image_url" value ="<%= @object.image_url %>">
+  </div>
+  <div>
+      <input name="id" value = "<%= @id %>" type="hidden">
+  </div>
+  <div>
+    <button>Add!</button>
+  </div>
+</form>

@@ -1,31 +1,55 @@
 class MoviesController < ApplicationController
   def index
-    render("/show.html.erb")
+    @model_list = Movie.all
+    render("show.html.erb")
   end
 
   def find
-    render("/find.html.erb")
+    @id = params[:id]
+    @model = Movie.find(@id)
+    render("find.html.erb")
   end
 
   def delete
-    render("/delete.html.erb")
+    @id = params[:id]
+    @object = Movie.find(@id)
+    @object.delete
+    redirect_to("/movies")
   end
 
   def create_form
-    render("/create_form.html.erb")
+    render("create_form.html.erb")
   end
 
 
   def save
-    render("/save.html.erb")
+    p = Movie.new
+    #Insert specific info
+    p.name = params["the_name"]
+    p.bio = params["the_bio"]
+    p.dob = params["the_dob"]
+    p.image_url = params["the_image_url"]
+    p.save
+    redirect_to("/movies")
   end
 
   def edit_form
-    render("/edit_form.html.erb")
+    @id = params[:id]
+    @object = Movie.find(@id)
+    render("edit_form.html.erb")
   end
 
   def update
-    render("/update.html.erb")
+    @id = params[:id]
+    p = Movie.find(@id)
+    #Insert specific info
+    p.name = params["the_name"]
+    p.bio = params["the_bio"]
+    p.dob = params["the_dob"]
+    p.image_url = params["the_image_url"]
+    p.save
+    redirect_to("/movies")
   end
+
 
 end

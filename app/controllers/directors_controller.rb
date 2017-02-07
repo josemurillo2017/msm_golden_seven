@@ -1,31 +1,55 @@
-class DirectorsController
+class DirectorsController < ApplicationController
   def index
-    render("/show.html.erb")
+    @model_list = Director.all
+    render("show.html.erb")
   end
 
   def find
-    render("/find.html.erb")
+    @id = params[:id]
+    @model = Director.find(@id)
+    render("find.html.erb")
   end
 
   def delete
-    render("/delete.html.erb")
+    @id = params[:id]
+    @object = Director.find(@id)
+    @object.delete
+    redirect_to("/directors")
   end
 
   def create_form
-    render("/create_form.html.erb")
+    render("create_form.html.erb")
   end
 
 
   def save
-    render("/save.html.erb")
+    p = Director.new
+    #Insert specific info
+    p.name = params["the_name"]
+    p.bio = params["the_bio"]
+    p.dob = params["the_dob"]
+    p.image_url = params["the_image_url"]
+    p.save
+    redirect_to("/Directors")
   end
 
   def edit_form
-    render("/edit_form.html.erb")
+    @id = params[:id]
+    @object = Director.find(@id)
+    render("edit_form.html.erb")
   end
 
   def update
-    render("/update.html.erb")
+    @id = params[:id]
+    p = Director.find(@id)
+    #Insert specific info
+    p.name = params["the_name"]
+    p.bio = params["the_bio"]
+    p.dob = params["the_dob"]
+    p.image_url = params["the_image_url"]
+    p.save
+    redirect_to("/directors")
   end
+
 
 end
