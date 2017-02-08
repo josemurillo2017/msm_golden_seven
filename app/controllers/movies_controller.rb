@@ -25,9 +25,10 @@ class MoviesController < ApplicationController
   def save
     p = Movie.new
     #Insert specific info
-    p.name = params["the_name"]
-    p.bio = params["the_bio"]
-    p.dob = params["the_dob"]
+    p.title = params["the_title"]
+    p.year = params["the_year"]
+    p.duration = params["the_duration"]
+    p.description = params["the_description"]
     p.image_url = params["the_image_url"]
     p.save
     redirect_to("/movies")
@@ -43,9 +44,10 @@ class MoviesController < ApplicationController
     @id = params[:id]
     p = Movie.find(@id)
     #Insert specific info
-    p.name = params["the_name"]
-    p.bio = params["the_bio"]
-    p.dob = params["the_dob"]
+    p.title = params["the_title"]
+    p.year = params["the_year"]
+    p.duration = params["the_duration"]
+    p.description = params["the_description"]
     p.image_url = params["the_image_url"]
     p.save
     redirect_to("/movies")
