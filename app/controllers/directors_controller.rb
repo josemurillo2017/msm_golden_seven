@@ -30,7 +30,7 @@ class DirectorsController < ApplicationController
     p.dob = params["the_dob"]
     p.image_url = params["the_image_url"]
     p.save
-    redirect_to("/Directors")
+    redirect_to("/directors")
   end
 
   def edit_form
